@@ -23,7 +23,13 @@ scheduler:
   # hpa:
   #   minReplicas: 1
   #   maxReplicas: 10
-  #   targetCPUUtilizationPercentage: 50
+  #   metrics:
+  #     - type: Resource
+  #       resource:
+  #         name: cpu
+  #         target:
+  #           type: Utilization
+  #           averageUtilization: 50
 
 # Effective if standaloneScheduler is true
 webServer:
@@ -43,7 +49,13 @@ webServer:
   # hpa:
   #   minReplicas: 1
   #   maxReplicas: 10
-  #   targetCPUUtilizationPercentage: 50
+  #   metrics:
+  #     - type: Resource
+  #       resource:
+  #         name: cpu
+  #         target:
+  #           type: Utilization
+  #           averageUtilization: 50
 
 # Enable Postgres as the DB
 postgresql:
@@ -157,7 +169,13 @@ customReadinessProbe: {}
 # hpa:
 #   minReplicas: 1
 #   maxReplicas: 10
-#   targetCPUUtilizationPercentage: 50
+#   metrics:
+#     - type: Resource
+#       resource:
+#         name: cpu
+#         target:
+#           type: Utilization
+#           averageUtilization: 50
 
 # We recommend creating the ingress separately instead of creating it using this chart.
 # There is a corresponding Mage-Ingress chart to create an ingress for Mage if needed.

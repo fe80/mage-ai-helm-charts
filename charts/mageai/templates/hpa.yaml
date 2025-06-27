@@ -1,7 +1,7 @@
 {{- if not .Values.standaloneScheduler }}
 
 {{- if .Values.hpa -}}
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ include "mageai.fullname" . }}-hpa
@@ -16,7 +16,7 @@ spec:
 {{- else }}
 
 {{- if .Values.scheduler.hpa -}}
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Values.scheduler.name }}-scheduler-hpa
@@ -31,7 +31,7 @@ spec:
 ---
 
 {{- if .Values.webServer.hpa -}}
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Values.webServer.name }}-hpa
